@@ -194,7 +194,28 @@ Fungsi deteksi warna akan melakukan pengecekan warna pada setiap piksel, warna p
 
 ### Deteksi Warna Kulit
 Fungsi deteksi warna akan digunakan untuk mengecek warna setiap piksel, ketika warna setiap piksel berada pada range warna kulit manusia. Maka metode superpixel-level tidak akan mengidentifikasi piksel tersebut sebagai objek fesyen item. Ketika warna piksel merupakan warna kulit manusia, maka piksel tersebut akan dilewati dan tidak akan di lakukan pengecekan.
+```
+dataset = CustomDataset()
+dataset.load_custom("datasetTesting/dataset", "test")
+dataset.prepare()
 
+
+min_YCrCb = np.array([0,133,77],np.uint8)
+max_YCrCb = np.array([235,173,127],np.uint8)  
+
+print(len(dataset.image_ids))
+for image_id in dataset.image_ids:
+    plt.figure(figsize=(10, 10))
+    _, ax = plt.subplots(1, figsize=(8,8))
+    imageName = dataset.image_reference(image_id)
+    image = cv2.imread(imageName)
+    imageYCrCb = cv2.cvtColor(image,cv2.COLOR_BGR2YCR_CB)
+    skinRegionYCrCb = cv2.inRange(imageYCrCb,min_YCrCb,max_YCrCb)
+
+    skinYCrCb = cv2.bitwise_and(image, image, mask = skinRegionYCrCb)
+    screen = cv2.cvtColor(skinYCrCb, cv2.COLOR_RGB2BGR)
+    plt.imshow(screen)
+```
 
 
 
