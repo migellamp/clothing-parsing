@@ -1,13 +1,66 @@
-# Joint Pixel-Level and Superpixel-Level Segmentation for Parsing Clothing in Fashion Photographs
+<div align="center">
+  <h1 align="center">Tugas Akhir</h1>
+
+  <h3 align="center">
+     Penggabungan Segmentasi Pixel-Level dan Superpixel-Level untuk Pelabelan Fesyen Item
+  </h3>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#struktur-projek">Struktur Projek</a>
+    </li>
+        <li>
+      <a href="#installation">Installation</a>
+    </li>
+    <li>
+      <a href="#pelatihan-model-menggunakan-metode-segmentasi-pixel-level">Pelatihan Model menggunakan Metode Segmentasi Pixel-Level</a>
+    </li>
+    <li>
+      <a href="#deteksi-dan-visualisasi-objek-fesyen-item">Deteksi dan Visualisasi Objek Fesyen Item</a>
+    </li>
+        <li>
+      <a href="#deteksi-dan-visualisasi-objek-bentuk-tubuh-manusia">Deteksi dan Visualisasi Objek Bentuk Tubuh Manusia</a>
+    </li>
+    <li>
+      <a href="#penguraian-objek">Penguraian Objek</a>
+    </li>
+    <li>
+      <a href="#penerapan-superpixel">Penerapan Superpixel</a>
+    </li>
+  </ol>
+</details>
+
+
+## Struktur Projek
 
 <img width="1310" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/cac85daf-e165-415e-83a3-d6b0d2fe1c1a">
 
-Project ini akan terbagi menjadi beberapa tahap yaitu :
 1. Pelatihan Model menggunakan metode segmentasi pixel-level
 2. Deteksi dan visualisasi objek Fesyen Item (Clothing Segmentation)
 3. Deteksi dan Visualisasi objek Tubuh Manusia (Body Segmentation)
 4. Penguraian Objek
 5. Penerapan Superpixel
+
+
+## Installation
+1. Clone repositori ini
+2. Untuk menjalankan metode segmentasi Pixel-level, dapat menginstall dependency pertama menggunakan command berikut :
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Untuk menjalankan metode segmentasi Superpixel-level, dapat menginstall dependency kedua yang terletak pada file :
+   ```
+   dependencies.txt
+   ```
+4.  Jalankan file `setup.py` pada root directory
+    ```bash
+    python setup.py install
+    ``` 
+
 
 
 ## Pelatihan Model menggunakan Metode Segmentasi Pixel-Level
