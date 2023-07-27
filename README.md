@@ -10,7 +10,7 @@ Project ini akan terbagi menjadi beberapa tahap yaitu :
 5. Penerapan Superpixel
 
 
-## 1. Pelatihan Model menggunakan Metode Segmentasi Pixel-Level
+## Pelatihan Model menggunakan Metode Segmentasi Pixel-Level
 ### Mempersiapkan Dataset
 Sebelum dapat melakukan proses pelatihan atau pembelajaran perlu mempersiapkan dataset terlebih dahulu. Dataset yang digunakan yaitu dataset [ModaNet](https://github.com/eBay/modanet)
 Dataset yang telah berhasil didownload masukkan kedalam folder berikut.
@@ -59,7 +59,7 @@ Selain itu, masih terdapat beberapa hal yang perlu dilakukan agar proses pembela
 |     Validation_steps              |     50                    |
 |     Weight_decay                  |     0.0001                |
 
-## 2. Deteksi dan Visualisasi Objek Fesyen Item
+## Deteksi dan Visualisasi Objek Fesyen Item
 Untuk menjalankan proses deteksi dan visualisasi objek berupa fesyen item dapat menjalankan file `.ipynb` pada :
 * Menjalankan file pada cell 1-5
 ```
@@ -68,7 +68,7 @@ Untuk menjalankan proses deteksi dan visualisasi objek berupa fesyen item dapat 
 Hasil yang didapatkan ketika objek fesyen item dideteksi menggunakan model yang telah dilakukan pembelajaran pada metode segmentasi pixel-level ditampilkan pada gambar dibawah:
 <img width="1065" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/0f9cf24e-1531-4414-9546-1056b6b9ec72">
 
-## 3. Deteksi dan Visualisasi Objek Bentuk Tubuh Manusia
+## Deteksi dan Visualisasi Objek Bentuk Tubuh Manusia
 Pada proses Body Segmentation, proses seperti mempersiapkan data dan melatih model dapat dilewati. Hal itu karena, untuk mendapatkan model pembelajaran pada dataset COCO, pada penelitian ini tidak perlu dilakukan tahap pembelajaran. 	
 Saat menjalankan tahap pembelajaran model pada dataset ModaNet, untuk menjalankan proses tersebut pre-trained model tidak menjadi syarat dalam melakukan proses pembelajaran. Sehingga ketika pre-trained model tidak dipersiapkan terlebih dahulu maka otomatis weight model yang digunakan dalam proses pembelajaran akan diunduh terlebih dahulu secara otomatis. 
 
@@ -83,7 +83,7 @@ Hasil yang didapatkan ketika objek tubuh manusia dideteksi menggunakan model yan
 <img width="775" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/a175f81d-4594-4522-9801-74a7dbd1ea6e">
 
 
-## 4. Penguraian Objek
+## Penguraian Objek
 Setelah model yang telah dilakukan pembelajaran didapatkan, dan proses deteksi objek dijalankan terhadap kedua proses segmentasi, yaitu proses Clothing Segmentation dan Body Segmentation. Selanjutnya objek yang teridentifikasi pada saat proses deteksi objek, perlu diuraikan terlebih dahulu. Proses penguraian tersebut bertujuan untuk mengambil semua objek yang terdeteksi, serta informasi berupa koordinat setiap objek tersebut juga diperlukan. 
 
 Untuk menjalankan proses penguraian objek yang didapatkan dapat menjalankan file `./custom/Program_Main.ipynb` pada cell 7 dan 10.
@@ -102,6 +102,51 @@ make_segmentation_mask(image2, mask2)
 ```
 Hasil yang didapatkan ketika kedua objek diuraikan atau diambil dalam bentuk masks ditampilkan pada gambar dibawah:
 <img width="1144" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/38baab4b-e0bf-4f1d-9d79-8d82746fe5e7">
+
+## Penerapan Superpixel
+Untuk menjalankan proses penerapan superpixel dapat menjalankan semua cell yang terdapat pada file `./custom/Program_Main.ipynb`.
+Proses yang terjadi selama metode segmentasi superpixel-level berlangsung ialah sebagai berikut:
+
+### 1. Menerapkan Superpixel
+Algoritma SLIC merupakan algoritma yang dipilih untuk diterapkan kedalam metode superpixel pada penelitian ini. Algoritma SLIC menjalankan algoritma K-Means yang mana merupakan salah satu algoritma yang digunakan untuk mengelompokkan data kedalam suatu cluster.
+```
+AlgorithmSLIC = slic(image, segments, compactness, convert2lab , sigma)
+```
+<img width="638" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/1c150435-654d-424e-90fe-58324f53559c">
+
+### 2. Akses Setiap Piksel
+Setiap piksel yang terbentuk akan dilakukan pengecekan satu per satu. Proses pengecekan bertujuan untuk melakukan identifikasi terhadap setiap pikselnya. Ketika piksel merupakan bagian dari suatu objek maka piksel tersebut akan diidentifikasikan sebagai objek baru.
+```
+  if(maskClothing[int(cx)][int(cy)] == True
+    or maskClothing[int(cx-1)][int(cy)] == True
+      or maskClothing[int(cx+1)][int(cy)] == True
+        or maskClothing[int(cx)][int(cy-1)] == True
+          or maskClothing[int(cx)][int(cy+1)] == True):
+
+```
+Apabila dilihat pada Gambar dibawah, bahwa hasil yang didapatkan dengan menerapkan metode segmentasi superpixel-level masih sangat bergantung pada objek yang dihasilkan pada metode segmentasi pixel-level. 
+
+Hal tersebut dikarenakan, metode segmentasi hanya mengambil objek yang sebelumnya sudah dideteksi dan diterapkan dengan metode superpixel-level. Oleh karena itu, agar metode segmentasi superpixel-level tidak bergantung penuh dengan hasil yang didapatkan pada metode segmentasi pixel-level, maka proses selanjutnya ialah melakukan deteksi terhadap objek yang tidak terdeteksi pada metode segmentasi pixel- level.
+
+<img width="831" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/ae35adff-e71e-4608-b82a-1581786968f9">
+
+### 3. Deteksi Objek atau Masks yang Tidak Sempurna
+
+### Fungsi Deteksi Warna dan Neihbor Status
+Fungsi deteksi warna akan melakukan pengecekan warna pada setiap piksel, warna pada setiap piksel yang tidak terdeteksi akan dilakukan pengecekan terhadap warna semua piksel yang terdeteksi. Ketika suatu piksel memiliki warna yang sama, superpixel tidak akan langsung menandai piksel tersebut terlebih dahulu. Namun untuk dengan pemanfaatan fungsi neighbor status, piksel yang memilki warna yang sama tersebut akan dilakukan pengecekan terlebih dahulu, apakah piksel sebelum dan sesudahnya memilki nama objek atau kelas yang sama. Ketika Piksel tetangganya memilki nama objek yang sama, maka baru piksel tersebut akan diidentifikasikan sebagai objek baru. 
+
+### Penyempunaan Pengelompokkan Piksel
+<img width="737" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/0003e9d0-d245-4ea9-a547-ed779424e48b">
+
+
+### Deteksi Warna Kulit
+Fungsi deteksi warna akan digunakan untuk mengecek warna setiap piksel, ketika warna setiap piksel berada pada range warna kulit manusia. Maka metode superpixel-level tidak akan mengidentifikasi piksel tersebut sebagai objek fesyen item. Ketika warna piksel merupakan warna kulit manusia, maka piksel tersebut akan dilewati dan tidak akan di lakukan pengecekan.
+
+
+
+
+
+
 
 
 
