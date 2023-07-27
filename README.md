@@ -31,6 +31,9 @@
     <li>
       <a href="#penerapan-superpixel">Penerapan Superpixel</a>
     </li>
+        <li>
+      <a href="#perbandingan-metode">Perbandingan Metode Segmentasi Pixel Level dan Metode Segmentasi Pixel Level + Superpixel Level</a>
+    </li>
   </ol>
 </details>
 
@@ -228,6 +231,16 @@ for image_id in dataset.image_ids:
     plt.imshow(screen)
 ```
 
+### Hasil Akhir Penerapan Metode Superpixel-Level
+<img width="1134" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/5e0027d9-3f00-4e2a-91c2-87c4ab0a80b1">
+
+
+## Perbandingan Metode Segmentasi Pixel Level dan Metode Segmentasi Pixel Level + Superpixel Level
+Metode Segmentasi Pixel Level         |  Metode Segmentasi Pixel Level + Superpixel Level
+:-------------------------:|:-------------------------:
+<img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/478f7b50-3590-49c6-9a92-8ba8dad42273"> | <img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/f80609ee-b01d-491d-8b82-f0a145c5debf">
+<img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/08780977-a6c4-4e52-a62e-73641641d664"> |  <img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/a38b231c-a62c-4e67-a98a-4e1d3c16dfd9">
+<img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/c7c7961a-e123-461f-bb39-b9701ea835eb"> | <img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/0ff0fad9-5521-4043-9838-6170572b0dc6">
 
 
 
