@@ -1,0 +1,3 @@
+***
+    Folder untuk menyimpan kumpulan gambar, yang akan digunakan untuk melakukan test
+***

@@ -1,0 +1,57 @@
+"0000415.jpg": {
+    "fileref":"",
+    "size":25222,
+    "filename":"0000415.jpg",
+    "base64_img_data":"",
+    "file_attributes":{},
+    "regions":
+    {
+        "0": {
+            "shape_attributes":{
+                "name":"polygon",
+                "all_points_x":[125,129,132 …],
+                "all_points_y":[180,156,126, …]},
+            "region_attributes":{"label":"bag"} },
+        "1": {
+            "shape_attributes": {
+                "name":"polygon",
+                "all_points_x":[150,163,172, …],
+                "all_points_y":[180,156,126, …]},
+            "region_attributes":{"label":"belt"}
+        },
+    
+    }
+}
+
+    {
+        "year": 2018,
+        "categories": [
+        {"supercategory": "fashion", "id": 0, "name": "bag"},
+        {"supercategory": "fashion", "id": 1, "name": "belt"},
+        {"supercategory": "fashion", "id": 2, "name": "dress"},
+        {"supercategory": "fashion", "id": 4, "name": "footwear"},
+        {"supercategory": "fashion", "id": 5, "name": "headwear"},
+        {...}
+    
+        ],
+        "annotations": [
+        {
+            "segmentation": [[161, 248, ...]],
+            "area": 1746,
+            "iscrowd": 0,
+            "image_id": 736791,
+            "bbox": [160, 247, ...],
+            "category_id": 2,
+            "id": 0
+        },
+        {
+            "segmentation": [[161, 248, ...]],
+            "area": 1260,
+            "iscrowd": 0,
+            "image_id": 736791,
+            "bbox": [[161, 248, ...]],
+            "category_id": 4,
+            "id": 1
+        },
+        {}]
+    }
