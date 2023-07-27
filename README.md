@@ -6,7 +6,8 @@ Project ini akan terbagi menjadi beberapa tahap yaitu :
 1. Pelatihan Model menggunakan metode segmentasi pixel-level
 2. Deteksi dan visualisasi objek Fesyen Item (Clothing Segmentation)
 3. Deteksi dan Visualisasi objek Tubuh Manusia (Body Segmentation)
-4. Penerapan Superpixel
+4. Penguraian Objek
+5. Penerapan Superpixel
 
 
 ## 1. Pelatihan Model menggunakan Metode Segmentasi Pixel-Level
@@ -58,7 +59,7 @@ Selain itu, masih terdapat beberapa hal yang perlu dilakukan agar proses pembela
 |     Validation_steps              |     50                    |
 |     Weight_decay                  |     0.0001                |
 
-### Deteksi dan Visualisasi Objek Fesyen Item
+## 2. Deteksi dan Visualisasi Objek Fesyen Item
 Untuk menjalankan proses deteksi dan visualisasi objek berupa fesyen item dapat menjalankan file `.ipynb` pada :
 * Menjalankan file pada cell 1-5
 ```
@@ -67,7 +68,7 @@ Untuk menjalankan proses deteksi dan visualisasi objek berupa fesyen item dapat 
 Hasil yang didapatkan ketika objek fesyen item dideteksi menggunakan model yang telah dilakukan pembelajaran pada metode segmentasi pixel-level ditampilkan pada gambar dibawah:
 <img width="1065" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/0f9cf24e-1531-4414-9546-1056b6b9ec72">
 
-### Deteksi dan Visualisasi Objek Bentuk Tubuh Manusia
+## 3. Deteksi dan Visualisasi Objek Bentuk Tubuh Manusia
 Pada proses Body Segmentation, proses seperti mempersiapkan data dan melatih model dapat dilewati. Hal itu karena, untuk mendapatkan model pembelajaran pada dataset COCO, pada penelitian ini tidak perlu dilakukan tahap pembelajaran. 	
 Saat menjalankan tahap pembelajaran model pada dataset ModaNet, untuk menjalankan proses tersebut pre-trained model tidak menjadi syarat dalam melakukan proses pembelajaran. Sehingga ketika pre-trained model tidak dipersiapkan terlebih dahulu maka otomatis weight model yang digunakan dalam proses pembelajaran akan diunduh terlebih dahulu secara otomatis. 
 
@@ -82,7 +83,7 @@ Hasil yang didapatkan ketika objek tubuh manusia dideteksi menggunakan model yan
 <img width="775" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/a175f81d-4594-4522-9801-74a7dbd1ea6e">
 
 
-### Penguraian Objek
+## 4. Penguraian Objek
 Setelah model yang telah dilakukan pembelajaran didapatkan, dan proses deteksi objek dijalankan terhadap kedua proses segmentasi, yaitu proses Clothing Segmentation dan Body Segmentation. Selanjutnya objek yang teridentifikasi pada saat proses deteksi objek, perlu diuraikan terlebih dahulu. Proses penguraian tersebut bertujuan untuk mengambil semua objek yang terdeteksi, serta informasi berupa koordinat setiap objek tersebut juga diperlukan. 
 
 Untuk menjalankan proses penguraian objek yang didapatkan dapat menjalankan file `./custom/Program_Main.ipynb` pada cell 7 dan 10.
