@@ -59,9 +59,20 @@
 4.  Jalankan file `setup.py` pada root directory
     ```bash
     python setup.py install
-    ``` 
-
-
+    ```
+5.  Jalankan file `Program_TestingModel.ipynb` untuk melakukan testing pada Metode Segmentasi Superpixel-Level
+    ```bash
+    Jalankan satu per satu cell yang terletak didalam file tersebut
+    ```
+6.  Jalankan file `Program_TrainingModel.py` untuk melakukan training model menggunakan Metode Segmentasi Pixel-Level
+    ```bash
+    python ./custom/Program_TrainingModel.py train --dataset=/path --weigths=/path
+    ```
+7.  Jalankan file `Program_AplikasiTKINTER.py` untuk menjalankan program yang menyediakan UI
+    ```bash
+    python ./path/Program_AplikasiTKINTER.py
+    ```
+   
 
 ## Pelatihan Model menggunakan Metode Segmentasi Pixel-Level
 ### Mempersiapkan Dataset
