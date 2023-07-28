@@ -36,11 +36,11 @@
     </li>
   </ol>
 </details>
+<img width="1310" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/judulFix.png">
 
+## Alur Penelitian Projek
 
-## Struktur Projek
-
-<img width="1310" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/cac85daf-e165-415e-83a3-d6b0d2fe1c1a">
+<img width="1310" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/alur.png">
 
 1. Pelatihan Model menggunakan metode segmentasi pixel-level
 2. Deteksi dan visualisasi objek Fesyen Item (Clothing Segmentation)
@@ -133,7 +133,7 @@ Untuk menjalankan proses deteksi dan visualisasi objek berupa fesyen item dapat 
 ./custom/Program_Main.ipynb
 ```
 Hasil yang didapatkan ketika objek fesyen item dideteksi menggunakan model yang telah dilakukan pembelajaran pada metode segmentasi pixel-level ditampilkan pada gambar dibawah:
-<img width="1065" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/0f9cf24e-1531-4414-9546-1056b6b9ec72">
+<img width="1065" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/pixel-level.png">
 
 ## Deteksi dan Visualisasi Objek Bentuk Tubuh Manusia
 Pada proses Body Segmentation, proses seperti mempersiapkan data dan melatih model dapat dilewati. Hal itu karena, untuk mendapatkan model pembelajaran pada dataset COCO, pada penelitian ini tidak perlu dilakukan tahap pembelajaran. 	
@@ -147,7 +147,7 @@ Untuk menjalankan proses deteksi dan visualisasi objek berupa bentuk tubuh manus
 ./custom/Program_Main.ipynb
 ```
 Hasil yang didapatkan ketika objek tubuh manusia dideteksi menggunakan model yang telah dilakukan pembelajaran pada metode segmentasi pixel-level ditampilkan pada gambar dibawah:
-<img width="775" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/a175f81d-4594-4522-9801-74a7dbd1ea6e">
+<img width="775" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/body">
 
 
 ## Penguraian Objek
@@ -203,7 +203,7 @@ Hal tersebut dikarenakan, metode segmentasi hanya mengambil objek yang sebelumny
 Fungsi deteksi warna akan melakukan pengecekan warna pada setiap piksel, warna pada setiap piksel yang tidak terdeteksi akan dilakukan pengecekan terhadap warna semua piksel yang terdeteksi. Ketika suatu piksel memiliki warna yang sama, superpixel tidak akan langsung menandai piksel tersebut terlebih dahulu. Namun untuk dengan pemanfaatan fungsi neighbor status, piksel yang memilki warna yang sama tersebut akan dilakukan pengecekan terlebih dahulu, apakah piksel sebelum dan sesudahnya memilki nama objek atau kelas yang sama. Ketika Piksel tetangganya memilki nama objek yang sama, maka baru piksel tersebut akan diidentifikasikan sebagai objek baru. 
 
 ### Penyempunaan Pengelompokkan Piksel
-<img width="737" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/0003e9d0-d245-4ea9-a547-ed779424e48b">
+<img width="737" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/penyempurnaan">
 
 
 ### Deteksi Warna Kulit
@@ -232,16 +232,16 @@ for image_id in dataset.image_ids:
 ```
 
 ### Hasil Akhir Penerapan Metode Superpixel-Level
-<img width="1134" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/5e0027d9-3f00-4e2a-91c2-87c4ab0a80b1">
+<img width="1134" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/hasil">
 
 
 ## Perbandingan Metode 
 Perbandingan Metode Segmentasi Pixel Level dan Metode Segmentasi Pixel Level + Superpixel Level
 Metode Segmentasi Pixel Level         |  Metode Segmentasi Pixel Level + Superpixel Level
 :-------------------------:|:-------------------------:
-<img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/478f7b50-3590-49c6-9a92-8ba8dad42273"> | <img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/f80609ee-b01d-491d-8b82-f0a145c5debf">
-<img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/08780977-a6c4-4e52-a62e-73641641d664"> |  <img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/a38b231c-a62c-4e67-a98a-4e1d3c16dfd9">
-<img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/c7c7961a-e123-461f-bb39-b9701ea835eb"> | <img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/assets/80758137/0ff0fad9-5521-4043-9838-6170572b0dc6">
+<img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/bf1.png"> | <img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/af1.png">
+<img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/bf2.png"> |  <img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/af2.png">
+<img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/bf3.png"> | <img width="289" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/af3.png">
 
 
 
