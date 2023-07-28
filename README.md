@@ -232,7 +232,7 @@ for image_id in dataset.image_ids:
 ```
 
 ### Hasil Akhir Penerapan Metode Superpixel-Level
-<img width="1134" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/hasil">
+<img width="1134" alt="image" src="https://github.com/migellamp/clothing-parsing/blob/main/images/hasil.png">
 
 
 ## Perbandingan Metode 
